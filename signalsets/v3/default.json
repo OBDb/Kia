@@ -22,13 +22,20 @@
     {"id": "KIA_TRUNK",          "path": "Doors",     "fmt": {"bix": 39, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Trunk open?"},
     {"id": "KIA_BELT_PASSENGER", "path": "Seatbelts", "fmt": {"bix": 40, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Passenger seatbelt latched?"},
     {"id": "KIA_BELT_DRIVER",    "path": "Seatbelts", "fmt": {"bix": 41, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Driver seatbelt latched?"},
+    {"id": "KIA_BELT_PASS",      "path": "Seatbelts", "fmt": {"bix": 45, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Passenger seatbelt latched?"},
+    {"id": "KIA_BELT_DRIV",      "path": "Seatbelts", "fmt": {"bix": 46, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Driver seatbelt latched?"},
+    {"id": "KIA_HOOD",           "path": "Doors",     "fmt": {"bix": 47, "len": 1, "max": 1,                             "unit": "noyes" }, "name": "Hood latched?"},
     {"id": "KIA_DEFOG_SW",       "path": "Climate",   "fmt": {"bix": 56, "len": 8, "max": 1, "nullmin": 0, "nullmax": 1, "unit": "noyes" }, "name": "Defogging?"}
   ]},
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC04"}, "freq": 1,
   "signals": [
     {"id": "KIA_LOCK_FR",      "path": "Doors",        "fmt": {"bix": 34, "len": 1, "max": 1, "unit": "scalar" }, "name": "Door Lock Front Right (Raw)"},
     {"id": "KIA_LOCK_FL",      "path": "Doors",        "fmt": {"bix": 35, "len": 1, "max": 1, "unit": "scalar" }, "name": "Door Lock Front Left (Raw)"},
-    {"id": "KIA_REVERSE_GEAR", "path": "Transmission", "fmt": {"bix": 36, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Reverse Gear Selected"}
+    {"id": "KIA_GEAR_R",       "path": "Transmission", "fmt": {"bix": 35, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Reverse gear selected"},
+    {"id": "KIA_REVERSE_GEAR", "path": "Transmission", "fmt": {"bix": 36, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Reverse Gear Selected"},
+    {"id": "KIA_BELT_RM",      "path": "Seatbelts",    "fmt": {"bix": 52, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Rear middle seatbelt latched?"},
+    {"id": "KIA_BELT_RL",      "path": "Seatbelts",    "fmt": {"bix": 53, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Rear left seatbelt latched?"},
+    {"id": "KIA_BELT_RR",      "path": "Seatbelts",    "fmt": {"bix": 54, "len": 1, "max": 1, "unit": "noyes"  }, "name": "Rear right seatbelt latched?"}
   ]},
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC05"}, "freq": 1,
   "signals": [
@@ -62,7 +69,35 @@
     {"id": "KIA_TW_RR", "path": "Tires", "fmt": {"bix": 136, "len": 8, "max": 1,                                     "unit": "noyes"   }, "name": "TPMS Alert Rear Right"},
     {"id": "KIA_TP_RR", "path": "Tires", "fmt": {"bix": 152, "len": 8, "max": 51,              "div": 5,             "unit": "psi"     }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
     {"id": "KIA_TT_RR", "path": "Tires", "fmt": {"bix": 160, "len": 8, "max": 205, "min": -50,           "add": -50, "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "KIA_TW_RL", "path": "Tires", "fmt": {"bix": 176, "len": 8, "max": 1,                                     "unit": "noyes"   }, "name": "TPMS Alert Rear Left"}
+    {"id": "KIA_TW_RL", "path": "Tires", "fmt": {"bix": 176, "len": 8, "max": 1,                                     "unit": "noyes"   }, "name": "TPMS Alert Rear Left"},
+    {"id": "KIA_TB_FL", "path": "Tires", "name": "Tire battery front left", "fmt": {"bix": 48, "len": 8, "map": {
+          "0": { "description": ">3 V",        "value": "3V+" },
+          "1": { "description": "2.7 - 3 V",   "value": "27_3V" },
+          "2": { "description": "2.4 - 2.7 V", "value": "2_4_2_7V" },
+          "3": { "description": "< 2.4",       "value": "2_4-" }
+        }}
+    },
+    {"id": "KIA_TB_FR", "path": "Tires", "name": "Tire battery front right", "fmt": {"bix": 88, "len": 8, "map": {
+          "0": { "description": ">3 V",        "value": "3V+" },
+          "1": { "description": "2.7 - 3 V",   "value": "27_3V" },
+          "2": { "description": "2.4 - 2.7 V", "value": "2_4_2_7V" },
+          "3": { "description": "< 2.4",       "value": "2_4-" }
+        }}
+    },
+    {"id": "KIA_TB_RR", "path": "Tires", "name": "Tire battery rear right", "fmt": {"bix": 128, "len": 8, "map": {
+          "0": { "description": ">3 V",        "value": "3V+" },
+          "1": { "description": "2.7 - 3 V",   "value": "27_3V" },
+          "2": { "description": "2.4 - 2.7 V", "value": "2_4_2_7V" },
+          "3": { "description": "< 2.4",       "value": "2_4-" }
+        }}
+    },
+    {"id": "KIA_TB_RL", "path": "Tires", "name": "Tire battery rear left", "fmt": {"bix": 168, "len": 8, "map": {
+          "0": { "description": ">3 V",        "value": "3V+" },
+          "1": { "description": "2.7 - 3 V",   "value": "27_3V" },
+          "2": { "description": "2.4 - 2.7 V", "value": "2_4_2_7V" },
+          "3": { "description": "< 2.4",       "value": "2_4-" }
+        }}
+    }
   ]},
 { "hdr": "7B3", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"22": "0100"}, "freq": 0.25,
   "signals": [
@@ -118,6 +153,17 @@
     {"id": "KIA_BMS_MOD2_TEMP",  "path": "Battery", "fmt": {"bix": 136, "len": 8,  "max": 80,     "min": -40,             "sign": true, "unit": "celsius"   }, "name": "BMS Battery Mod 2 Temp"},
     {"id": "KIA_BMS_MOD3_TEMP",  "path": "Battery", "fmt": {"bix": 144, "len": 8,  "max": 80,     "min": -40,             "sign": true, "unit": "celsius"   }, "name": "BMS Battery Mod 3 Temp"},
     {"id": "KIA_BMS_MOD4_TEMP",  "path": "Battery", "fmt": {"bix": 152, "len": 8,  "max": 80,     "min": -40,             "sign": true, "unit": "celsius"   }, "name": "BMS Battery Mod 4 Temp"}
+  ]},
+{ "hdr": "7D6", "dbg": true, "cmd": {"21": "06"}, "freq": 15,
+  "signals": [
+    {"id": "KIA_TIRE_1_P", "path": "Tires", "fmt": {            "len": 16, "max": 100,              "div": 10,               "unit": "kilopascal" }, "name": "Tire 1 pressure"},
+    {"id": "KIA_TIRE_1_T", "path": "Tires", "fmt": {"bix": 16,  "len": 16, "max": 100, "min": -100,            "sign": true, "unit": "celsius"    }, "name": "Tire 1 temperature"},
+    {"id": "KIA_TIRE_2_P", "path": "Tires", "fmt": {"bix": 48,  "len": 16, "max": 100,              "div": 10,               "unit": "kilopascal" }, "name": "Tire 2 pressure"},
+    {"id": "KIA_TIRE_2_T", "path": "Tires", "fmt": {"bix": 64,  "len": 16, "max": 100, "min": -100,            "sign": true, "unit": "celsius"    }, "name": "Tire 2 temperature"},
+    {"id": "KIA_TIRE_3_P", "path": "Tires", "fmt": {"bix": 96,  "len": 16, "max": 100,              "div": 10,               "unit": "kilopascal" }, "name": "Tire 3 pressure"},
+    {"id": "KIA_TIRE_3_T", "path": "Tires", "fmt": {"bix": 112, "len": 16, "max": 100, "min": -100,            "sign": true, "unit": "celsius"    }, "name": "Tire 3 temperature"},
+    {"id": "KIA_TIRE_4_P", "path": "Tires", "fmt": {"bix": 144, "len": 16, "max": 100,              "div": 10,               "unit": "kilopascal" }, "name": "Tire 4 pressure"},
+    {"id": "KIA_TIRE_4_T", "path": "Tires", "fmt": {"bix": 160, "len": 16, "max": 100, "min": -100,            "sign": true, "unit": "celsius"    }, "name": "Tire 4 temperature"}
   ]},
 { "hdr": "7E0", "rax": "7D8", "dbg": true, "cmd": {"21": "01"}, "freq": 1,
   "signals": [
