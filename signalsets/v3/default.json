@@ -49,7 +49,7 @@
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC08"}, "freq": 2,
   "signals": [
     {"id": "KIA_TURN_L", "path": "Lights", "fmt": {"bix": 32, "len": 8, "max": 1, "nullmin": 0, "nullmax": 1, "unit": "noyes" }, "name": "Left turn signal on? (raw >1)"},
-    {"id": "KIA_TURN_R", "path": "Lights", "fmt": {"bix": 32, "len": 8, "max": 1, "nullmin": 0, "nullmax": 3, "unit": "noyes" }, "name": "Right turn signal on? (raw >3)"}
+    {"id": "KIA_TURN_R", "path": "Lights", "fmt": {"bix": 37, "len": 1, "max": 1,                             "unit": "offon" }, "name": "Right turn signal on? (raw >3)"}
   ]},
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC09"}, "freq": 1,
   "signals": [
@@ -58,34 +58,36 @@
   ]},
 { "hdr": "7A0", "rax": "7A8", "fcm1": true, "dbg": true, "cmd": {"22": "C00B"}, "freq": 15,
   "signals": [
-    {"id": "KIA_TP_FL",         "path": "Tires", "fmt": {"bix": 32,  "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Front left tire pressure",          "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "KIA_TT_FL",         "path": "Tires", "fmt": {"bix": 40,  "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Front left tire temperature"},
-    {"id": "KIA_TPMS_TEMP_FL",  "path": "Tires", "fmt": {"bix": 40,  "len": 8, "max": 100, "min": -50,                       "sign": true, "unit": "celsius" }, "name": "Tire temperature front left"},
-    {"id": "KIA_TW_FL",         "path": "Tires", "fmt": {"bix": 56,  "len": 8, "max": 1,                                                   "unit": "noyes"   }, "name": "Tire alert front left"},
-    {"id": "KIA_FL_INVALID",    "path": "Tires", "fmt": {"bix": 62,  "len": 1, "max": 1,                                                   "unit": "noyes"   }, "name": "Front left tire reading invalid?"},
-    {"id": "KIA_TP_FR_PRE21",   "path": "Tires", "fmt": {"bix": 64,  "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Tire pressure front right",         "suggestedMetric": "frontRightTirePressure"},
-    {"id": "KIA_TP_FR",         "path": "Tires", "fmt": {"bix": 72,  "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Front right tire pressure",         "suggestedMetric": "frontRightTirePressure"},
-    {"id": "KIA_TT_FR_PRE21",   "path": "Tires", "fmt": {"bix": 72,  "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Tire temperature front right"},
-    {"id": "KIA_TT_FR",         "path": "Tires", "fmt": {"bix": 80,  "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Front right tire temperature"},
-    {"id": "KIA_TPMS_TEMP_FR",  "path": "Tires", "fmt": {"bix": 80,  "len": 8, "max": 100, "min": -50,                       "sign": true, "unit": "celsius" }, "name": "Tire temperature front right"},
-    {"id": "KIA_FR_INVALID",    "path": "Tires", "fmt": {"bix": 94,  "len": 1, "max": 1,                                                   "unit": "noyes"   }, "name": "Front right tire reading invalid?"},
-    {"id": "KIA_TP_RR_PRE21",   "path": "Tires", "fmt": {"bix": 96,  "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Tire pressure rear right",          "suggestedMetric": "rearRightTirePressure"},
-    {"id": "KIA_TW_FR",         "path": "Tires", "fmt": {"bix": 96,  "len": 8, "max": 1,                                                   "unit": "noyes"   }, "name": "Tire alert front right"},
-    {"id": "KIA_TT_RR_PRE21",   "path": "Tires", "fmt": {"bix": 104, "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Tire temperature rear right"},
-    {"id": "KIA_TP_RL",         "path": "Tires", "fmt": {"bix": 112, "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Rear left tire pressure",           "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "KIA_TPMS_PRESS_RR", "path": "Tires", "fmt": {"bix": 112, "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Tire pressure rear right",          "suggestedMetric": "rearRightTirePressure"},
-    {"id": "KIA_TT_RL",         "path": "Tires", "fmt": {"bix": 120, "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Rear left tire temperature"},
-    {"id": "KIA_TPMS_TEMP_RR",  "path": "Tires", "fmt": {"bix": 120, "len": 8, "max": 100, "min": -50,                       "sign": true, "unit": "celsius" }, "name": "Tire temperature rear right"},
-    {"id": "KIA_RL_INVALID",    "path": "Tires", "fmt": {"bix": 126, "len": 1, "max": 1,                                                   "unit": "noyes"   }, "name": "Rear left tire reading invalid?"},
-    {"id": "KIA_TP_RL_PRE21",   "path": "Tires", "fmt": {"bix": 128, "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Tire pressure rear left",           "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "KIA_TT_RL_PRE21",   "path": "Tires", "fmt": {"bix": 136, "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Tire temperature rear left)"},
-    {"id": "KIA_TW_RR",         "path": "Tires", "fmt": {"bix": 136, "len": 8, "max": 1,                                                   "unit": "noyes"   }, "name": "Tire alert rear right"},
-    {"id": "KIA_TP_RR",         "path": "Tires", "fmt": {"bix": 152, "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Rear right tire pressure",          "suggestedMetric": "rearRightTirePressure"},
-    {"id": "KIA_TPMS_PRESS_RL", "path": "Tires", "fmt": {"bix": 152, "len": 8, "max": 51,              "div": 5,                           "unit": "psi"     }, "name": "Tire pressure rear left",           "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "KIA_RR_INVALID",    "path": "Tires", "fmt": {"bix": 158, "len": 1, "max": 1,                                                   "unit": "noyes"   }, "name": "Rear right tire reading invalid?"},
-    {"id": "KIA_TT_RR",         "path": "Tires", "fmt": {"bix": 160, "len": 8, "max": 205, "min": -50,           "add": -50,               "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "KIA_TPMS_TEMP_RL",  "path": "Tires", "fmt": {"bix": 160, "len": 8, "max": 100, "min": -50,                       "sign": true, "unit": "celsius" }, "name": "Tire temperature rear left"},
-    {"id": "KIA_TW_RL",         "path": "Tires", "fmt": {"bix": 176, "len": 8, "max": 1,                                                   "unit": "noyes"   }, "name": "Tire alert rear left"},
+    {"id": "KIA_TP_FL",         "path": "Tires", "fmt": {"bix": 32,  "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Front left tire pressure",          "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "KIA_TP_FL_PRE21",   "path": "Tires", "fmt": {"bix": 32,  "len": 8, "max": 51,              "div": 5,                           "nullmin": 0,   "unit": "psi"     }, "name": "Tire pressure front left",          "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "KIA_TT_FL",         "path": "Tires", "fmt": {"bix": 40,  "len": 8, "max": 205, "min": -50,           "add": -50,                               "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "KIA_TPMS_TEMP_FL",  "path": "Tires", "fmt": {"bix": 40,  "len": 8, "max": 100, "min": -50,                       "sign": true,                 "unit": "celsius" }, "name": "Tire temperature front left"},
+    {"id": "KIA_TT_FL_PRE21",   "path": "Tires", "fmt": {"bix": 40,  "len": 8, "max": 205, "min": -50,           "add": -50,               "nullmin": -50, "unit": "celsius" }, "name": "Tire temperature front left"},
+    {"id": "KIA_TW_FL",         "path": "Tires", "fmt": {"bix": 56,  "len": 8, "max": 1,                                                                   "unit": "noyes"   }, "name": "Tire alert front left"},
+    {"id": "KIA_FL_INVALID",    "path": "Tires", "fmt": {"bix": 62,  "len": 1, "max": 1,                                                                   "unit": "noyes"   }, "name": "Front left tire reading invalid?"},
+    {"id": "KIA_TP_FR_PRE21",   "path": "Tires", "fmt": {"bix": 64,  "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Tire pressure front right",         "suggestedMetric": "frontRightTirePressure"},
+    {"id": "KIA_TP_FR",         "path": "Tires", "fmt": {"bix": 72,  "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Front right tire pressure",         "suggestedMetric": "frontRightTirePressure"},
+    {"id": "KIA_TT_FR_PRE21",   "path": "Tires", "fmt": {"bix": 72,  "len": 8, "max": 205, "min": -50,           "add": -50,               "nullmin": -50, "unit": "celsius" }, "name": "Tire temperature front right"},
+    {"id": "KIA_TT_FR",         "path": "Tires", "fmt": {"bix": 80,  "len": 8, "max": 205, "min": -50,           "add": -50,                               "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "KIA_TPMS_TEMP_FR",  "path": "Tires", "fmt": {"bix": 80,  "len": 8, "max": 100, "min": -50,                       "sign": true,                 "unit": "celsius" }, "name": "Tire temperature front right"},
+    {"id": "KIA_FR_INVALID",    "path": "Tires", "fmt": {"bix": 94,  "len": 1, "max": 1,                                                                   "unit": "noyes"   }, "name": "Front right tire reading invalid?"},
+    {"id": "KIA_TW_FR",         "path": "Tires", "fmt": {"bix": 96,  "len": 8, "max": 1,                                                                   "unit": "noyes"   }, "name": "Tire alert front right"},
+    {"id": "KIA_TP_RR_PRE21",   "path": "Tires", "fmt": {"bix": 96,  "len": 8, "max": 51,              "div": 5,                           "nullmin": 0,   "unit": "psi"     }, "name": "Tire pressure rear right",          "suggestedMetric": "rearRightTirePressure"},
+    {"id": "KIA_TT_RR_PRE21",   "path": "Tires", "fmt": {"bix": 104, "len": 8, "max": 205, "min": -50,           "add": -50,                               "unit": "celsius" }, "name": "Tire temperature rear right"},
+    {"id": "KIA_TP_RL",         "path": "Tires", "fmt": {"bix": 112, "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Rear left tire pressure",           "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "KIA_TPMS_PRESS_RR", "path": "Tires", "fmt": {"bix": 112, "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Tire pressure rear right",          "suggestedMetric": "rearRightTirePressure"},
+    {"id": "KIA_TT_RL",         "path": "Tires", "fmt": {"bix": 120, "len": 8, "max": 205, "min": -50,           "add": -50,                               "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "KIA_TPMS_TEMP_RR",  "path": "Tires", "fmt": {"bix": 120, "len": 8, "max": 100, "min": -50,                       "sign": true,                 "unit": "celsius" }, "name": "Tire temperature rear right"},
+    {"id": "KIA_RL_INVALID",    "path": "Tires", "fmt": {"bix": 126, "len": 1, "max": 1,                                                                   "unit": "noyes"   }, "name": "Rear left tire reading invalid?"},
+    {"id": "KIA_TP_RL_PRE21",   "path": "Tires", "fmt": {"bix": 128, "len": 8, "max": 51,              "div": 5,                           "nullmin": 0,   "unit": "psi"     }, "name": "Tire pressure rear left",           "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "KIA_TW_RR",         "path": "Tires", "fmt": {"bix": 136, "len": 8, "max": 1,                                                                   "unit": "noyes"   }, "name": "Tire alert rear right"},
+    {"id": "KIA_TT_RL_PRE21",   "path": "Tires", "fmt": {"bix": 136, "len": 8, "max": 205, "min": -50,           "add": -50,               "nullmin": -50, "unit": "celsius" }, "name": "Tire temperature rear left)"},
+    {"id": "KIA_TP_RR",         "path": "Tires", "fmt": {"bix": 152, "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Rear right tire pressure",          "suggestedMetric": "rearRightTirePressure"},
+    {"id": "KIA_TPMS_PRESS_RL", "path": "Tires", "fmt": {"bix": 152, "len": 8, "max": 51,              "div": 5,                                           "unit": "psi"     }, "name": "Tire pressure rear left",           "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "KIA_RR_INVALID",    "path": "Tires", "fmt": {"bix": 158, "len": 1, "max": 1,                                                                   "unit": "noyes"   }, "name": "Rear right tire reading invalid?"},
+    {"id": "KIA_TT_RR",         "path": "Tires", "fmt": {"bix": 160, "len": 8, "max": 205, "min": -50,           "add": -50,                               "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "KIA_TPMS_TEMP_RL",  "path": "Tires", "fmt": {"bix": 160, "len": 8, "max": 100, "min": -50,                       "sign": true,                 "unit": "celsius" }, "name": "Tire temperature rear left"},
+    {"id": "KIA_TW_RL",         "path": "Tires", "fmt": {"bix": 176, "len": 8, "max": 1,                                                                   "unit": "noyes"   }, "name": "Tire alert rear left"},
     {"id": "KIA_TB_FL", "path": "Tires", "name": "Tire battery front left", "fmt": {"bix": 48, "len": 8, "map": {
           "0": { "description": ">3 V",        "value": "3V+" },
           "1": { "description": "2.7 - 3 V",   "value": "27_3V" },
@@ -146,14 +148,14 @@
   ]},
 { "hdr": "7D1", "rax": "7D9", "dbg": true, "cmd": {"22": "0104"}, "freq": 1,
   "signals": [
-    {"id": "KIA_VSS_AVG_V2",     "path": "Movement", "fmt": {"bix": 48,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "ABS speed (avg)"},
-    {"id": "KIA_TIRE_FL_VSS_V2", "path": "Movement", "fmt": {"bix": 88,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "ABS speed front left"},
-    {"id": "KIA_TIRE_FR_VSS_V2", "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "ABS speed front right"},
-    {"id": "KIA_TIRE_RR_VSS_V2", "path": "Movement", "fmt": {"bix": 104, "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "ABS speed rear right"},
-    {"id": "KIA_TIRE_RL_VSS_V2", "path": "Movement", "fmt": {"bix": 112, "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "ABS speed rear left"},
-    {"id": "KIA_TC_SWITCH_V2",   "path": "Movement", "fmt": {"bix": 150, "len": 1,  "max": 1,                                                 "unit": "noyes"             }, "name": "ABS traction control switch (raw)"},
-    {"id": "KIA_STEER_ANGLE_V2", "path": "Control",  "fmt": {"bix": 200, "len": 16, "max": 3276.7, "min": -3276.8, "div": 10,   "sign": true, "unit": "degrees"           }, "name": "Steering wheel angle"},
-    {"id": "KIA_BRAKE_P_V2",     "path": "Control",  "fmt": {"bix": 256, "len": 16, "max": 100,                    "div": 86.7, "sign": true, "unit": "percent"           }, "name": "Brake pressure"}
+    {"id": "KIA_VSS_AVG_V2",        "path": "Movement", "fmt": {"bix": 48,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "Average wheel speed"},
+    {"id": "KIA_TIRE_FL_VSS_V2_V2", "path": "Movement", "fmt": {"bix": 88,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "KIA_TIRE_FR_VSS_V2_V2", "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "KIA_TIRE_RR_VSS_V2_V2", "path": "Movement", "fmt": {"bix": 104, "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
+    {"id": "KIA_TIRE_RL_VSS_V2_V2", "path": "Movement", "fmt": {"bix": 112, "len": 8,  "max": 255,                                               "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"},
+    {"id": "KIA_TC_SWITCH_V2",      "path": "Movement", "fmt": {"bix": 150, "len": 1,  "max": 1,                                                 "unit": "noyes"             }, "name": "Traction control switch (raw)"},
+    {"id": "KIA_STEER_ANGLE_V2_V2", "path": "Control",  "fmt": {"bix": 200, "len": 16, "max": 3276.7, "min": -3276.8, "div": 10,   "sign": true, "unit": "degrees"           }, "name": "Steering wheel angle"},
+    {"id": "KIA_BRAKE_P_V2",        "path": "Control",  "fmt": {"bix": 256, "len": 16, "max": 100,                    "div": 86.7, "sign": true, "unit": "percent"           }, "name": "Brake pressure"}
   ]},
 { "hdr": "7D1", "rax": "7D9", "dbg": true, "cmd": {"22": "4000"}, "freq": 1,
   "signals": [
@@ -181,20 +183,126 @@
     {"id": "KIA_BMS_MOD3_TEMP",  "path": "Battery", "fmt": {"bix": 144, "len": 8,  "max": 80,     "min": -40,             "sign": true, "unit": "celsius"   }, "name": "BMS battery mod 3 temp"},
     {"id": "KIA_BMS_MOD4_TEMP",  "path": "Battery", "fmt": {"bix": 152, "len": 8,  "max": 80,     "min": -40,             "sign": true, "unit": "celsius"   }, "name": "BMS battery mod 4 temp"}
   ]},
+{ "hdr": "7D6", "rax": "7DE", "dbg": true, "cmd": {"21": "06"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_TP_1", "path": "Tires", "fmt": {            "len": 16, "max": 6553.5,                "div": 10,               "unit": "kilopascal" }, "name": "Sensor 1 pressure"},
+    {"id": "KIA_TT_1", "path": "Tires", "fmt": {"bix": 16,  "len": 16, "max": 32767,  "min": -32768,            "sign": true, "unit": "celsius"    }, "name": "Sensor 1 temperature"},
+    {"id": "KIA_TP_2", "path": "Tires", "fmt": {"bix": 48,  "len": 16, "max": 6553.5,                "div": 10,               "unit": "kilopascal" }, "name": "Sensor 2 pressure"},
+    {"id": "KIA_TT_2", "path": "Tires", "fmt": {"bix": 64,  "len": 16, "max": 32767,  "min": -32768,            "sign": true, "unit": "celsius"    }, "name": "Sensor 2 temperature"},
+    {"id": "KIA_TP_3", "path": "Tires", "fmt": {"bix": 96,  "len": 16, "max": 6553.5,                "div": 10,               "unit": "kilopascal" }, "name": "Sensor 3 pressure"},
+    {"id": "KIA_TT_3", "path": "Tires", "fmt": {"bix": 112, "len": 16, "max": 32767,  "min": -32768,            "sign": true, "unit": "celsius"    }, "name": "Sensor 3 temperature"},
+    {"id": "KIA_TP_4", "path": "Tires", "fmt": {"bix": 144, "len": 16, "max": 6553.5,                "div": 10,               "unit": "kilopascal" }, "name": "Sensor 4 pressure"},
+    {"id": "KIA_TT_4", "path": "Tires", "fmt": {"bix": 160, "len": 16, "max": 32767,  "min": -32768,            "sign": true, "unit": "celsius"    }, "name": "Sensor 4 temperature"}
+  ]},
+{ "hdr": "7E0", "dbg": true, "cmd": {"22": "21A0"}, "freq": 10,
+  "signals": [
+    {"id": "KIA_ATF_TEMP", "path": "Transmission", "fmt": {"bix": 16, "len": 8, "max": 255, "mul": 9, "div": 5, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature"}
+  ]},
 { "hdr": "7E0", "rax": "7D8", "dbg": true, "cmd": {"21": "18"}, "freq": 0.25,
   "signals": [
     {"id": "KIA_CVVT_T", "path": "Engine", "fmt": {"bix": 272, "len": 8, "max": 207, "min": -48, "add": -48, "unit": "celsius" }, "name": "CVVT temperature", "description": "Continuously variable valve timing temperature."}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "00"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_FUEL_CUT",               "path": "Fuel",     "fmt": {"bix": 88,  "len": 8, "max": 255, "unit": "scalar" }, "name": "Fuel cut"},
+    {"id": "KIA_IDLE_CONTROL_MODE",      "path": "Engine",   "fmt": {"bix": 120, "len": 8, "max": 255, "unit": "scalar" }, "name": "Idle control mode"},
+    {"id": "KIA_COOLANT_FAN_LOW_SPEED",  "path": "Movement", "fmt": {"bix": 170, "len": 1, "max": 1,   "unit": "offon"  }, "name": "Coolant fan low speed"},
+    {"id": "KIA_COOLANT_FAN_HIGH_SPEED", "path": "Movement", "fmt": {"bix": 171, "len": 1, "max": 1,   "unit": "offon"  }, "name": "Coolant fan high speed"},
+    {"id": "KIA_KNOCK_DETECTED",         "path": "Engine",   "fmt": {"bix": 200, "len": 8, "max": 255, "unit": "scalar" }, "name": "Knock detected"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "01"}, "freq": 1,
   "signals": [
-    {"id": "KIA_MIS_1", "path": "Engine", "fmt": {"bix": 56,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfire count #1"},
-    {"id": "KIA_MIS_2", "path": "Engine", "fmt": {"bix": 72,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfire count #2"},
-    {"id": "KIA_MIS_3", "path": "Engine", "fmt": {"bix": 88,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfire count #3"},
-    {"id": "KIA_MIS_4", "path": "Engine", "fmt": {"bix": 104, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfire count #4"}
+    {"id": "KIA_CONTROL_MODULE_VOLTAGE",                "path": "Battery",  "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                                         "unit": "volts"   },                   "name": "Control module voltage"},
+    {"id": "KIA_CONTROL_MODULE_VOLTAGE_AFTER_IGNITION", "path": "Battery",  "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                                         "unit": "volts"   },                   "name": "Control module voltage after ignition"},
+    {"id": "KIA_MIS_1",                                 "path": "Engine",   "fmt": {"bix": 56,  "len": 16, "blsb": true,  "max": 65535,                                                                          "unit": "scalar"     },                                               "name": "Misfire count #1"},
+    {"id": "KIA_ENGINE_RPM",                            "path": "Movement", "fmt": {"bix": 56,  "len": 16, "blsb": true,  "max": 16383.75,                    "mul": 0.25,                                       "unit": "rpm"        },                                               "name": "Engine RPM"},
+    {"id": "KIA_MIS_2",                                 "path": "Engine",   "fmt": {"bix": 72,  "len": 16, "blsb": true,  "max": 65535,                                                                          "unit": "scalar"     },                                               "name": "Misfire count #2"},
+    {"id": "KIA_COMMANDED_ENGINE_IDLE_RPM",             "path": "Movement", "fmt": {"bix": 72,  "len": 8,  "max": 2550,                          "mul": 10,                                    "unit": "rpm"     },                   "name": "Commanded engine idle RPM"},
+    {"id": "KIA_MIS_3",                                 "path": "Engine",   "fmt": {"bix": 88,  "len": 16, "blsb": true,  "max": 65535,                                                                          "unit": "scalar"     },                                               "name": "Misfire count #3"},
+    {"id": "KIA_MIS_4",                                 "path": "Engine",   "fmt": {"bix": 104, "len": 16, "blsb": true,  "max": 65535,                                                                          "unit": "scalar"     },                                               "name": "Misfire count #4"},
+    {"id": "KIA_MAP_SENSOR_VOLTAGE",                    "path": "Battery",  "fmt": {"bix": 112, "len": 16, "blsb": true,  "max": 319.9951171875,              "mul": 0.0048828125,                               "unit": "volts"      },                                               "name": "MAP sensor voltage"},
+    {"id": "KIA_INTAKE_MANIFOLD_ABSOLUTE_PRESSURE",     "path": "ECU",      "fmt": {"bix": 128, "len": 16, "blsb": true,  "max": 255.99609375,                "mul": 0.00390625,                                 "unit": "kilopascal" },                                               "name": "Intake manifold absolute pressure"},
+    {"id": "KIA_COOLANT_T_SENSOR_VOLTAGE",              "path": "Battery",  "fmt": {"bix": 184, "len": 16, "blsb": true,  "max": 319.9951171875,              "mul": 0.0048828125,                               "unit": "volts"      },                                               "name": "Coolant temperature sensor voltage"},
+    {"id": "KIA_ENGINE_COOLANT_T",                      "path": "Engine",   "fmt": {"bix": 200, "len": 8,  "max": 143.25, "min": -48,            "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Engine coolant temperature"},
+    {"id": "KIA_IAT_SENSOR_VOLTAGE",                    "path": "Battery",  "fmt": {"bix": 248, "len": 16, "blsb": true,  "max": 319.9951171875,              "mul": 0.0048828125,                               "unit": "volts"      },                                               "name": "IAT sensor voltage"},
+    {"id": "KIA_INTAKE_AIR_T",                          "path": "Engine",   "fmt": {"bix": 264, "len": 8,  "max": 143.25, "min": -48,            "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Intake air temperature"},
+    {"id": "KIA_ENGINE_OIL_T",                          "path": "Engine",   "fmt": {"bix": 272, "len": 8,  "max": 143.25, "min": -48,            "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Engine oil temperature"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "21A0"}, "freq": 10,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "02"}, "freq": 1,
   "signals": [
-    {"id": "KIA_ATF_TEMP", "path": "Transmission", "fmt": {"bix": 16, "len": 8, "max": 255, "mul": 9, "div": 5, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature"}
+    {"id": "KIA_OXYGEN_SENSOR_11",            "path": "ECU",      "fmt": {"bix": 32,  "len": 8,  "max": 1.12855,   "min": -0.2,      "mul": 0.00521,                 "add": -0.2, "unit": "volts"             },                     "name": "Oxygen sensor 1 bank 1"},
+    {"id": "KIA_OXYGEN_SENSOR_21",            "path": "ECU",      "fmt": {"bix": 48,  "len": 8,  "max": 1.12855,   "min": -0.2,      "mul": 0.00521,                 "add": -0.2, "unit": "volts"             },                     "name": "Oxygen sensor 2 bank 1"},
+    {"id": "KIA_VSS_V2_V2",                   "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 318.75,                      "mul": 1.25,                                 "unit": "kilometersPerHour" },                     "name": "Vehicle speed, v2",           "suggestedMetric": "speed"},
+    {"id": "KIA_COMMANDED_EVAPORATIVE_PURGE", "path": "ECU",      "fmt": {"bix": 160, "len": 8,  "max": 99.609375,                   "mul": 0.390625,                             "unit": "percent"           },                     "name": "Commanded evaporative purge"},
+    {"id": "KIA_FUEL_INJECTION_TIMING_1",     "path": "Fuel",     "fmt": {"bix": 176, "len": 16, "blsb": true,     "max": 53686.272,                  "mul": 0.8192,                                          "unit": "milliseconds" },                                     "name": "Fuel injection timing #1"},
+    {"id": "KIA_FUEL_INJECTION_TIMING_2",     "path": "Fuel",     "fmt": {"bix": 192, "len": 16, "blsb": true,     "max": 53686.272,                  "mul": 0.8192,                                          "unit": "milliseconds" },                                     "name": "Fuel injection timing #2"},
+    {"id": "KIA_FUEL_INJECTION_TIMING_3",     "path": "Fuel",     "fmt": {"bix": 208, "len": 16, "blsb": true,     "max": 53686.272,                  "mul": 0.8192,                                          "unit": "milliseconds" },                                     "name": "Fuel injection timing #3"},
+    {"id": "KIA_FUEL_INJECTION_TIMING_4",     "path": "Fuel",     "fmt": {"bix": 224, "len": 16, "blsb": true,     "max": 53686.272,                  "mul": 0.8192,                                          "unit": "milliseconds" },                                     "name": "Fuel injection timing #4"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "04"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_COOLANT_FAN_HIGH_SPEED__1_8_", "path": "Movement", "fmt": {"bix": 109, "len": 1, "max": 1, "unit": "offon" }, "name": "Coolant fan high speed (1.8)"},
+    {"id": "KIA_COOLANT_FAN_LOW_SPEED__1_8_",  "path": "Movement", "fmt": {"bix": 110, "len": 1, "max": 1, "unit": "offon" }, "name": "Coolant fan low speed (1.8)"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "0D"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_MIS_CNT_EMIS_1", "path": "Engine.Misfires", "fmt": {"bix": 48,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission-relevant misfires, cylinder #1"},
+    {"id": "KIA_MIS_CNT_EMIS_2", "path": "Engine.Misfires", "fmt": {"bix": 64,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission-relevant misfires, cylinder #2"},
+    {"id": "KIA_MIS_CNT_EMIS_3", "path": "Engine.Misfires", "fmt": {"bix": 80,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission-relevant misfires, cylinder #3"},
+    {"id": "KIA_MIS_CNT_EMIS_4", "path": "Engine.Misfires", "fmt": {"bix": 96,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission-relevant misfires, cylinder #4"},
+    {"id": "KIA_MIS_CNT_1",      "path": "Engine.Misfires", "fmt": {"bix": 176, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires total counter, cylinder #1"},
+    {"id": "KIA_MIS_CNT_2",      "path": "Engine.Misfires", "fmt": {"bix": 192, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires total counter, cylinder #2"},
+    {"id": "KIA_MIS_CNT_3",      "path": "Engine.Misfires", "fmt": {"bix": 208, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires total counter, cylinder #3"},
+    {"id": "KIA_MIS_CNT_4",      "path": "Engine.Misfires", "fmt": {"bix": 224, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires total counter, cylinder #4"},
+    {"id": "KIA_MIS_CNT_ALL",    "path": "Engine.Misfires", "fmt": {"bix": 432, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires total counter, all cylinders"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "13"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_TIMING_ADVANCE_1",    "path": "Engine", "fmt": {"bix": 32,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75, "sign": true, "unit": "degrees"    }, "name": "Timing advance #1"},
+    {"id": "KIA_TIMING_ADVANCE_2",    "path": "Engine", "fmt": {"bix": 40,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75, "sign": true, "unit": "degrees"    }, "name": "Timing advance #2"},
+    {"id": "KIA_TIMING_ADVANCE_3",    "path": "Engine", "fmt": {"bix": 48,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75, "sign": true, "unit": "degrees"    }, "name": "Timing advance #3"},
+    {"id": "KIA_TIMING_ADVANCE_4",    "path": "Engine", "fmt": {"bix": 56,  "len": 8, "max": 95.25, "min": -96, "mul": 0.75, "sign": true, "unit": "degrees"    }, "name": "Timing advance #4"},
+    {"id": "KIA_BAROMETRIC_PRESSURE", "path": "Engine", "fmt": {"bix": 312, "len": 8, "max": 127.5,             "mul": 0.5,                "unit": "kilopascal" }, "name": "Barometric pressure"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "14"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_COMMANDED_THROTTLE_ACTUATOR",                 "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 99.609375,                "mul": 0.390625,                                    "unit": "percent" },                "name": "Commanded throttle actuator"},
+    {"id": "KIA_THROTTLE_POSITION__1",                        "path": "Engine",   "fmt": {"bix": 48,  "len": 16, "blsb": true,     "max": 799,    "min": -800,     "mul": 0.0244140625, "sign": true,                   "unit": "percent" },                                             "name": "Throttle position #1"},
+    {"id": "KIA_THROTTLE_POSITION__2",                        "path": "Engine",   "fmt": {"bix": 64,  "len": 16, "blsb": true,     "max": 799,    "min": -800,     "mul": 0.0244140625, "sign": true,                   "unit": "percent" },                                             "name": "Throttle position #2"},
+    {"id": "KIA_THROTTLE_POSITION_SENSOR_VOLTAGE__2",         "path": "Battery",  "fmt": {"bix": 80,  "len": 16, "blsb": true,     "max": 79,                      "mul": 0.0012207031,                                 "unit": "volts"   },                                             "name": "Throttle position sensor voltage #2"},
+    {"id": "KIA_COOLANT_FAN__PWM_",                           "path": "Engine",   "fmt": {"bix": 96,  "len": 8,  "max": 100,                                                                          "unit": "percent" },                "name": "Coolant)"},
+    {"id": "KIA_RELATIVE_ACCELERATOR_PEDAL_POSITION_VOLTAGE", "path": "Battery",  "fmt": {"bix": 112, "len": 16, "blsb": true,     "max": 6553.4, "min": -6553.6,  "mul": 0.2,          "sign": true,                   "unit": "volts"   },                                             "name": "Relative accelerator pedal position voltage"},
+    {"id": "KIA_RELATIVE_ACCELERATOR_PEDAL_POSITION",         "path": "Movement", "fmt": {"bix": 128, "len": 8,  "max": 99.609375,                "mul": 0.390625,                                    "unit": "percent" },                "name": "Relative accelerator pedal position"},
+    {"id": "KIA_REQUESTED_TORQUE",                            "path": "Engine",   "fmt": {"bix": 176, "len": 16, "max": 100.00641,                "mul": 0.001526,                                    "unit": "percent" },                "name": "Requested torque"},
+    {"id": "KIA_THROTTLE_POSITION_SENSOR_VOLTAGE__1",         "path": "Battery",  "fmt": {"bix": 360, "len": 16, "blsb": true,     "max": 79,                      "mul": 0.0012207031,                                 "unit": "volts"   },                                             "name": "Throttle position sensor voltage #1"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "15"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_STFT_B1_IDLE", "path": "Fuel", "fmt": {"bix": 48, "len": 16, "blsb": true, "max": 100, "mul": 0.046875,                  "sign": true, "unit": "percent" }, "name": "Short term fuel % trim, bank 1 idle"},
+    {"id": "KIA_STFT_B1",      "path": "Fuel", "fmt": {"bix": 80, "len": 16, "blsb": true, "max": 100, "mul": 0.0030517578, "add": -100,               "unit": "percent" }, "name": "Short term fuel % trim, bank 1"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "16"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_KNOCK_RETARD_CYLINDER_1", "path": "ECU", "fmt": {"bix": 96,  "len": 8, "max": 191.25, "mul": 0.75, "unit": "degrees" }, "name": "Knock retard cylinder #1"},
+    {"id": "KIA_KNOCK_RETARD_CYLINDER_2", "path": "ECU", "fmt": {"bix": 104, "len": 8, "max": 191.25, "mul": 0.75, "unit": "degrees" }, "name": "Knock retard cylinder #2"},
+    {"id": "KIA_KNOCK_RETARD_CYLINDER_3", "path": "ECU", "fmt": {"bix": 112, "len": 8, "max": 191.25, "mul": 0.75, "unit": "degrees" }, "name": "Knock retard cylinder #3"},
+    {"id": "KIA_KNOCK_RETARD_CYLINDER_4", "path": "ECU", "fmt": {"bix": 120, "len": 8, "max": 191.25, "mul": 0.75, "unit": "degrees" }, "name": "Knock retard cylinder #4"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "17"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_INTAKE_CAMSHAFT_POSITION_COMMANDED", "path": "ECU", "fmt": {"bix": 32, "len": 8,  "max": 63.5,  "min": -64,         "mul": 0.5,                    "sign": true,               "unit": "degrees" },                "name": "intake camshaft position commanded"},
+    {"id": "KIA_INTAKE_CAMSHAFT_POSITION_ACTUAL",    "path": "ECU", "fmt": {"bix": 40, "len": 16, "blsb": true, "max": 255.9921875, "min": -256, "mul": 0.0078125,               "sign": true,                   "unit": "degrees" },                                            "name": "intake camshaft position actual"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "1D"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_MIS_1_V2",  "path": "Engine.Misfires", "fmt": {"bix": 32,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, cylinder 1"},
+    {"id": "KIA_MIS_2_V2",  "path": "Engine.Misfires", "fmt": {"bix": 48,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, cylinder 2"},
+    {"id": "KIA_MIS_3_V2",  "path": "Engine.Misfires", "fmt": {"bix": 64,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, cylinder 3"},
+    {"id": "KIA_MIS_4_V2",  "path": "Engine.Misfires", "fmt": {"bix": 80,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, cylinder 4"},
+    {"id": "KIA_MIS_CAT_1", "path": "Engine.Misfires", "fmt": {"bix": 160, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires harmful for catalyst cylinder 1"},
+    {"id": "KIA_MIS_CAT_2", "path": "Engine.Misfires", "fmt": {"bix": 176, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires harmful for catalyst cylinder 2"},
+    {"id": "KIA_MIS_CAT_3", "path": "Engine.Misfires", "fmt": {"bix": 192, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires harmful for catalyst cylinder 3"},
+    {"id": "KIA_MIS_CAT_4", "path": "Engine.Misfires", "fmt": {"bix": 208, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires harmful for catalyst cylinder 4"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E001"}, "freq": 1,
   "signals": [
@@ -226,13 +334,24 @@
     {"id": "KIA_KNOCK_LEARN_3",  "path": "Engine", "fmt": {"bix": 176, "len": 8, "max": 25.4, "min": -25.6, "div": 5, "sign": true, "unit": "degrees" }, "name": "Knock learn cylinder 3"},
     {"id": "KIA_KNOCK_LEARN_4",  "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 25.4, "min": -25.6, "div": 5, "sign": true, "unit": "degrees" }, "name": "Knock learn cylinder 4"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E019"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_KNOCK_RETARD_1_E019", "path": "Engine", "fmt": {"bix": 168, "len": 8, "max": 0, "min": -191.25, "mul": 0.75, "add": -191.25, "unit": "degrees" }, "name": "Knock retard cylinder 1, alternate"},
+    {"id": "KIA_KNOCK_RETARD_2_E019", "path": "Engine", "fmt": {"bix": 176, "len": 8, "max": 0, "min": -191.25, "mul": 0.75, "add": -191.25, "unit": "degrees" }, "name": "Knock retard cylinder 2, alternate"},
+    {"id": "KIA_KNOCK_RETARD_3_E019", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 0, "min": -191.25, "mul": 0.75, "add": -191.25, "unit": "degrees" }, "name": "Knock retard cylinder 3, alternate"},
+    {"id": "KIA_KNOCK_RETARD_4_E019", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 0, "min": -191.25, "mul": 0.75, "add": -191.25, "unit": "degrees" }, "name": "Knock retard cylinder 4, alternate"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E021"}, "freq": 0.1,
   "signals": [
-    {"id": "KIA_TURBO_BOOST", "path": "Engine", "fmt": {"bix": 56,  "len": 16, "max": 66.81, "min": -10,             "div": 831.55690902, "add": -12, "unit": "psi"     }, "name": "Turbo boost pressure (gauge)"},
-    {"id": "KIA_WG_VOLTAGE",  "path": "Engine", "fmt": {"bix": 392, "len": 16, "max": 10,                "mul": 10,  "div": 65535,                    "unit": "volts"   }, "name": "Waste gate voltage"},
-    {"id": "KIA_WG_DUTY",     "path": "Engine", "fmt": {"bix": 408, "len": 16, "max": 200,               "mul": 200, "div": 65535,                    "unit": "percent" }, "name": "Waste gate duty"},
-    {"id": "KIA_WG_POSITION", "path": "Engine", "fmt": {"bix": 424, "len": 16, "max": 400,               "mul": 400, "div": 65535,                    "unit": "percent" }, "name": "Waste gate position"},
-    {"id": "KIA_WG_SETPOINT", "path": "Engine", "fmt": {"bix": 440, "len": 16, "max": 100,               "mul": 400, "div": 65535,                    "unit": "percent" }, "name": "Waste gate setpoint"}
+    {"id": "KIA_TURBO_BOOST", "path": "Engine", "fmt": {"bix": 56,  "len": 16, "max": 66.81,       "min": -10,                     "div": 831.55690902, "add": -12, "unit": "psi"        }, "name": "Turbo boost pressure (gauge)"},
+    {"id": "KIA_TB_PRES",     "path": "Engine", "fmt": {"bix": 56,  "len": 16, "max": 543.350685,              "mul": 0.008291,                                     "unit": "kilopascal" }, "name": "Turbo boost pressure"},
+    {"id": "KIA_WG_VOLTAGE",  "path": "Engine", "fmt": {"bix": 392, "len": 16, "max": 10,                      "mul": 10,          "div": 65535,                    "unit": "volts"      }, "name": "Waste gate voltage"},
+    {"id": "KIA_WG_V",        "path": "Engine", "fmt": {"bix": 392, "len": 16, "max": 9.99985458,              "mul": 0.000152588,                                  "unit": "volts"      }, "name": "Waste gate voltage"},
+    {"id": "KIA_WG_DUTY",     "path": "Engine", "fmt": {"bix": 408, "len": 16, "max": 200,                     "mul": 200,         "div": 65535,                    "unit": "percent"    }, "name": "Waste gate duty"},
+    {"id": "KIA_WG_POSITION", "path": "Engine", "fmt": {"bix": 424, "len": 16, "max": 400,                     "mul": 400,         "div": 65535,                    "unit": "percent"    }, "name": "Waste gate position"},
+    {"id": "KIA_WG_POS",      "path": "Engine", "fmt": {"bix": 424, "len": 16, "max": 399.9941832,             "mul": 0.00610352,                                   "unit": "percent"    }, "name": "Waste gate position"},
+    {"id": "KIA_WG_SETPOINT", "path": "Engine", "fmt": {"bix": 440, "len": 16, "max": 100,                     "mul": 400,         "div": 65535,                    "unit": "percent"    }, "name": "Waste gate setpoint"},
+    {"id": "KIA_WG_SP",       "path": "Engine", "fmt": {"bix": 440, "len": 16, "max": 399.9941832,             "mul": 0.00610352,                                   "unit": "percent"    }, "name": "Waste gate setpoint"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "ED02"}, "freq": 1,
   "signals": [
