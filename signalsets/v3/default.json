@@ -248,6 +248,13 @@
     {"id": "KIA_TIRE_RR_VSS_V2", "path": "Movement", "fmt": {"bix": 72, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
     {"id": "KIA_TIRE_RR_VSS",    "path": "Movement", "fmt": {"bix": 72, "len": 8, "max": 255,                         "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"}
   ]},
+{ "hdr": "7D1", "rax": "7D9", "dbg": true, "cmd": {"22": "C101"}, "freq": 0.25,
+  "signals": [
+    {"id": "KIA_FL_WHEEL_VSS", "path": "Tires", "fmt": {"bix": 88,  "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "KIA_FR_WHEEL_VSS", "path": "Tires", "fmt": {"bix": 96,  "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "KIA_RL_WHEEL_VSS", "path": "Tires", "fmt": {"bix": 104, "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"},
+    {"id": "KIA_RR_WHEEL_VSS", "path": "Tires", "fmt": {"bix": 112, "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"}
+  ]},
 { "hdr": "7D4", "rax": "7DC", "dbg": true, "cmd": {"21": "01"}, "freq": 0.25,
   "signals": [
     {"id": "KIA_STEER_ANGLE_V2", "path": "Control", "fmt": {"bix": 72, "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
@@ -294,6 +301,17 @@
 { "hdr": "7E0", "dbg": true, "cmd": {"22": "21A0"}, "freq": 10,
   "signals": [
     {"id": "KIA_ATF_TEMP", "path": "Transmission", "fmt": {"bix": 16, "len": 8, "max": 255, "mul": 9, "div": 5, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature"}
+  ]},
+{ "hdr": "7E0", "dbg": true, "cmd": {"22": "E005"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_GDI_IT_A1", "path": "Engine", "fmt": {"bix": 224, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank a, 1"},
+    {"id": "KIA_GDI_IT_A2", "path": "Engine", "fmt": {"bix": 240, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank a, 2"},
+    {"id": "KIA_GDI_IT_A3", "path": "Engine", "fmt": {"bix": 256, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank a, 3"},
+    {"id": "KIA_GDI_IT_A4", "path": "Engine", "fmt": {"bix": 272, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank a, 4"},
+    {"id": "KIA_GDI_IT_B1", "path": "Engine", "fmt": {"bix": 352, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank b, 1"},
+    {"id": "KIA_GDI_IT_B2", "path": "Engine", "fmt": {"bix": 368, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank b, 2"},
+    {"id": "KIA_GDI_IT_B3", "path": "Engine", "fmt": {"bix": 384, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank b, 3"},
+    {"id": "KIA_GDI_IT_B4", "path": "Engine", "fmt": {"bix": 400, "len": 16, "blsb": true, "max": 6553.5, "div": 10, "unit": "milliseconds" }, "name": "Gasoline direct injection time bank b, 4"}
   ]},
 { "hdr": "7E0", "rax": "7D8", "dbg": true, "cmd": {"21": "18"}, "freq": 0.25,
   "signals": [
@@ -417,9 +435,12 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E001"}, "freq": 1,
   "signals": [
-    {"id": "KIA_IAT", "path": "Engine", "fmt": {"bix": 264, "len": 8, "max": 143.254781,                       "div": 1.3333, "add": -48, "unit": "celsius" }, "name": "Intake air temperature"},
-    {"id": "KIA_EIT", "path": "Engine", "fmt": {"bix": 264, "len": 8, "max": 143,        "min": -48, "mul": 3, "div": 4,      "add": -48, "unit": "celsius" }, "name": "Intake air temperature"},
-    {"id": "KIA_EOT", "path": "Engine", "fmt": {"bix": 272, "len": 8, "max": 143.254781,                       "div": 1.3333, "add": -48, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "KIA_BATTERY_V",                "path": "Battery", "fmt": {"bix": 32,  "len": 8, "max": 17.37,                  "mul": 17.37, "div": 255,                "unit": "volts"   }, "name": "Battery voltage"},
+    {"id": "KIA_BATTERY_V_AFTER_IGNITION", "path": "Battery", "fmt": {"bix": 40,  "len": 8, "max": 17.37,                  "mul": 17.37, "div": 255,                "unit": "volts"   }, "name": "Battery voltage after ignition"},
+    {"id": "KIA_BATTERY_SOC",              "path": "Battery", "fmt": {"bix": 48,  "len": 8, "max": 100,                    "mul": 100,   "div": 255,                "unit": "percent" }, "name": "Battery state of charge",        "suggestedMetric": "stateOfCharge"},
+    {"id": "KIA_IAT",                      "path": "Engine",  "fmt": {"bix": 264, "len": 8, "max": 143.254781,                           "div": 1.3333, "add": -48, "unit": "celsius" }, "name": "Intake air temperature"},
+    {"id": "KIA_EIT",                      "path": "Engine",  "fmt": {"bix": 264, "len": 8, "max": 143,        "min": -48, "mul": 3,     "div": 4,      "add": -48, "unit": "celsius" }, "name": "Intake air temperature"},
+    {"id": "KIA_EOT",                      "path": "Engine",  "fmt": {"bix": 272, "len": 8, "max": 143.254781,                           "div": 1.3333, "add": -48, "unit": "celsius" }, "name": "Engine oil temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E002"}, "freq": 5,
   "signals": [
@@ -444,6 +465,23 @@
     {"id": "KIA_KNOCK_LEARN_2",  "path": "Engine", "fmt": {"bix": 168, "len": 8, "max": 25.4, "min": -25.6, "div": 5, "sign": true, "unit": "degrees" }, "name": "Knock learn cylinder 2"},
     {"id": "KIA_KNOCK_LEARN_3",  "path": "Engine", "fmt": {"bix": 176, "len": 8, "max": 25.4, "min": -25.6, "div": 5, "sign": true, "unit": "degrees" }, "name": "Knock learn cylinder 3"},
     {"id": "KIA_KNOCK_LEARN_4",  "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 25.4, "min": -25.6, "div": 5, "sign": true, "unit": "degrees" }, "name": "Knock learn cylinder 4"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E00D"}, "freq": 1,
+  "signals": [
+    {"id": "KIA_MISFIRES_C1_CUR",                                "path": "Engine", "fmt": {"bix": 48,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, current, cylinder 1"},
+    {"id": "KIA_MISFIRES_C2_CUR",                                "path": "Engine", "fmt": {"bix": 64,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, current, cylinder 2"},
+    {"id": "KIA_MISFIRES_C3_CUR",                                "path": "Engine", "fmt": {"bix": 80,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, current, cylinder 3"},
+    {"id": "KIA_MISFIRES_C4_CUR",                                "path": "Engine", "fmt": {"bix": 96,  "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Misfires, current, cylinder 4"},
+    {"id": "KIA_EMISSION_RELEVANT_MISFIRES_TOTAL_C1",            "path": "Engine", "fmt": {"bix": 176, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission relevant misfires total, cylinder 1"},
+    {"id": "KIA_EMISSION_RELEVANT_MISFIRES_TOTAL_C2",            "path": "Engine", "fmt": {"bix": 192, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission relevant misfires total, cylinder 2"},
+    {"id": "KIA_EMISSION_RELEVANT_MISFIRES_TOTAL_C3",            "path": "Engine", "fmt": {"bix": 208, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission relevant misfires total, cylinder 3"},
+    {"id": "KIA_EMISSION_RELEVANT_MISFIRES_TOTAL_C4",            "path": "Engine", "fmt": {"bix": 224, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission relevant misfires total, cylinder 4"},
+    {"id": "KIA_CATALYST_DAMAGING_MISFIRES_TOTAL_C1",            "path": "Engine", "fmt": {"bix": 304, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Catalyst damaging misfires total, cylinder 1"},
+    {"id": "KIA_CATALYST_DAMAGING_MISFIRES_TOTAL_C2",            "path": "Engine", "fmt": {"bix": 320, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Catalyst damaging misfires total, cylinder 2"},
+    {"id": "KIA_CATALYST_DAMAGING_MISFIRES_TOTAL_C3",            "path": "Engine", "fmt": {"bix": 336, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Catalyst damaging misfires total, cylinder 3"},
+    {"id": "KIA_CATALYST_DAMAGING_MISFIRES_TOTAL_C4",            "path": "Engine", "fmt": {"bix": 352, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Catalyst damaging misfires total, cylinder 4"},
+    {"id": "KIA_EMISSION_RELEVANT_MISFIRES_TOTAL_ALL_CYLINDERS", "path": "Engine", "fmt": {"bix": 432, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Emission relevant misfires total all cylinders"},
+    {"id": "KIA_CATALYST_DAMAGING_MISFIRES_TOTAL_ALL_CYLINDERS", "path": "Engine", "fmt": {"bix": 448, "len": 16, "blsb": true, "max": 65535, "unit": "scalar" }, "name": "Catalyst damaging misfires total all cylinders"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "E019"}, "freq": 1,
   "signals": [
