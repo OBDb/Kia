@@ -181,17 +181,17 @@
   ]},
 { "hdr": "7B3", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"22": "0100"}, "freq": 0.25,
   "signals": [
-    {"id": "KIA_TEMP_INT",                                    "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior Temperature"},
-    {"id": "KIA_HVAC_IAT",                                    "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, front"},
-    {"id": "KIA_TEMP_EXT",                                    "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Exterior Temperature"},
-    {"id": "KIA_HVAC_AAT",                                    "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Outdoor temperature"},
-    {"id": "KIA_HVAC_EVAPORATOR_T",                           "path": "Climate",  "fmt": {"bix": 56,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Evaporator temperature"},
-    {"id": "KIA_HVAC_HUMIDITY_SENSOR_FOR_AUTOMATIC_DEFOGGER", "path": "Climate",  "fmt": {"bix": 200, "len": 8, "max": 100,                                    "unit": "percent"           }, "name": "Humidity sensor for automatic defogger"},
-    {"id": "KIA_HVAC_IAT_DRIVER_VENT",                        "path": "Climate",  "fmt": {"bix": 216, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver vent"},
-    {"id": "KIA_HVAC_IAT_DRIVER_LEGS_VENT",                   "path": "Climate",  "fmt": {"bix": 224, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver legs vent"},
-    {"id": "KIA_VSS",                                         "path": "Movement", "fmt": {"bix": 232, "len": 8, "max": 255,                                    "unit": "kilometersPerHour" }, "name": "Vehicle speed",                          "suggestedMetric": "speed"}
+    {"id": "KIA_TEMP_INT",                  "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior Temperature"},
+    {"id": "KIA_HVAC_IAT",                  "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, front"},
+    {"id": "KIA_TEMP_EXT",                  "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Exterior Temperature"},
+    {"id": "KIA_HVAC_AAT",                  "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Outdoor temperature"},
+    {"id": "KIA_HVAC_EVAPORATOR_T",         "path": "Climate",  "fmt": {"bix": 56,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Evaporator temperature"},
+    {"id": "KIA_HVAC_DEFOG_HUMIDITY",       "path": "Climate",  "fmt": {"bix": 200, "len": 8, "max": 100,                                    "unit": "percent"           }, "name": "Humidity sensor for automatic defogger"},
+    {"id": "KIA_HVAC_IAT_DRIVER_VENT",      "path": "Climate",  "fmt": {"bix": 216, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver vent"},
+    {"id": "KIA_HVAC_IAT_DRIVER_LEGS_VENT", "path": "Climate",  "fmt": {"bix": 224, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver legs vent"},
+    {"id": "KIA_VSS",                       "path": "Movement", "fmt": {"bix": 232, "len": 8, "max": 255,                                    "unit": "kilometersPerHour" }, "name": "Vehicle speed",                          "suggestedMetric": "speed"}
   ]},
-{ "hdr": "7B3", "rax": "7BB", "dbg": true, "cmd": {"22": "0101"}, "freq": 1,
+{ "hdr": "7B3", "rax": "7BB", "dbg": true, "cmd": {"22": "0101"}, "freq": 5,
   "signals": [
     {"id": "KIA_HVAC_IAT_PASSENGER_VENT",      "path": "Climate", "fmt": {"bix": 64, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Interior temperature, passenger vent"},
     {"id": "KIA_HVAC_IAT_PASSENGER_LEGS_VENT", "path": "Climate", "fmt": {"bix": 72, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Interior temperature, passenger legs vent"}
