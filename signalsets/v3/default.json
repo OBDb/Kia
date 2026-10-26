@@ -968,8 +968,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "ED02"}, "freq": 5,
   "signals": [
-    {"id": "KIA_EOT_V2", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 251, "min": -4, "add": -4, "unit": "celsius" }, "name": "Engine oil temperature"},
-    {"id": "KIA_EOT_V2", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 215, "min": -4, "add": -4, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "KIA_EOT_V2", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 251, "min": -4,  "add": -4, "unit": "celsius" }, "name": "Engine oil temperature"},
+    {"id": "KIA_EOT_V2", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 215, "min": -40, "add": -4, "unit": "celsius" }, "name": "Engine oil temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "ED03"}, "freq": 30,
   "signals": [
