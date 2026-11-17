@@ -156,7 +156,7 @@
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC05"}, "freq": 2,
   "signals": [
     {"id": "KIA_HAZARD_SW", "path": "Lights", "fmt": {"bix": 32, "len": 8, "max": 255,                             "unit": "scalar" }, "name": "Hazard switch"},
-    {"id": "KIA_HL_SW",     "path": "Lights", "fmt": {"bix": 48, "len": 8, "max": 1,   "nullmin": 0, "nullmax": 2, "unit": "noyes"  }, "name": "Headlight switch"}
+    {"id": "KIA_HL_SW",     "path": "Lights", "fmt": {"bix": 48, "len": 8, "max": 2,   "nullmin": 0, "nullmax": 2, "unit": "noyes"  }, "name": "Headlight switch"}
   ]},
 { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC06"}, "freq": 0.25,
   "signals": [
@@ -318,15 +318,16 @@
   ]},
 { "hdr": "7C6", "rax": "7CE", "fcm1": true, "dbg": true, "cmd": {"22": "B002"}, "freq": 1,
   "signals": [
-    {"id": "KIA_FLI_VOL",              "path": "Fuel",       "fmt": {"bix": 32, "len": 8,  "max": 127.5,      "div": 2,                  "nullmax": 127.5, "unit": "liters"     }, "name": "Fuel level",         "suggestedMetric": "fuelTankLevel"},
-    {"id": "KIA_FLI_VOL_THIRDGEN",     "path": "Fuel",       "fmt": {"bix": 32, "len": 8,  "max": 127.5,      "div": 2,                                    "unit": "liters"     }, "name": "Fuel level",         "suggestedMetric": "fuelTankLevel"},
-    {"id": "KIA_CLUSTER_VOLTAGE",      "path": "Electrical", "fmt": {"bix": 40, "len": 8,  "max": 18,         "div": 12.8,                                 "unit": "volts"      }, "name": "Cluster voltage",    "suggestedMetric": "starterBatteryVoltage"},
+    {"id": "KIA_FLI_VOL",              "path": "Fuel",       "fmt": {"bix": 32, "len": 8,  "max": 127.5,      "div": 2,                  "nullmax": 127.5, "unit": "liters"     }, "name": "Fuel level",          "suggestedMetric": "fuelTankLevel"},
+    {"id": "KIA_FLI_VOL_THIRDGEN",     "path": "Fuel",       "fmt": {"bix": 32, "len": 8,  "max": 127.5,      "div": 2,                                    "unit": "liters"     }, "name": "Fuel level",          "suggestedMetric": "fuelTankLevel"},
+    {"id": "KIA_CLUSTER_VOLTAGE",      "path": "Electrical", "fmt": {"bix": 40, "len": 8,  "max": 18,         "div": 12.8,                                 "unit": "volts"      }, "name": "Cluster voltage",     "suggestedMetric": "starterBatteryVoltage"},
+    {"id": "KIA_VPWR",                 "path": "Battery",    "fmt": {"bix": 40, "len": 8,  "max": 18,         "div": 12.8, "nullmin": 0,                   "unit": "volts"      }, "name": "12v battery voltage", "suggestedMetric": "starterBatteryVoltage"},
     {"id": "KIA_CRUZ_CLUSTER_VOLTAGE", "path": "Electrical", "fmt": {"bix": 40, "len": 8,  "max": 18,         "div": 12.8,                                 "unit": "volts"      }, "name": "Cluster voltage"},
-    {"id": "KIA_ODO_KM",               "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 16777215,                                                "unit": "kilometers" }, "name": "Odometer, metric",   "suggestedMetric": "odometer"},
-    {"id": "KIA_ODO",                  "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 4294967295,                                              "unit": "kilometers" }, "name": "Odometer",           "suggestedMetric": "odometer"},
-    {"id": "KIA_CRUZ_ODO_KM",          "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 16777215,                "nullmin": 0,                   "unit": "kilometers" }, "name": "Odometer, metric",   "suggestedMetric": "odometer"},
-    {"id": "KIA_ODO_MI",               "path": "Trips",      "fmt": {"bix": 72, "len": 24, "max": 16777215,                                                "unit": "miles"      }, "name": "Odometer, imperial", "suggestedMetric": "odometer"},
-    {"id": "KIA_CRUZ_ODO_MI",          "path": "Trips",      "fmt": {"bix": 72, "len": 24, "max": 16777215,                "nullmin": 0,                   "unit": "miles"      }, "name": "Odometer, imperial", "suggestedMetric": "odometer"}
+    {"id": "KIA_ODO_KM",               "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 16777215,                                                "unit": "kilometers" }, "name": "Odometer, metric",    "suggestedMetric": "odometer"},
+    {"id": "KIA_ODO",                  "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 4294967295,                                              "unit": "kilometers" }, "name": "Odometer",            "suggestedMetric": "odometer"},
+    {"id": "KIA_CRUZ_ODO_KM",          "path": "Trips",      "fmt": {"bix": 48, "len": 24, "max": 16777215,                "nullmin": 0,                   "unit": "kilometers" }, "name": "Odometer, metric",    "suggestedMetric": "odometer"},
+    {"id": "KIA_ODO_MI",               "path": "Trips",      "fmt": {"bix": 72, "len": 24, "max": 16777215,                                                "unit": "miles"      }, "name": "Odometer, imperial",  "suggestedMetric": "odometer"},
+    {"id": "KIA_CRUZ_ODO_MI",          "path": "Trips",      "fmt": {"bix": 72, "len": 24, "max": 16777215,                "nullmin": 0,                   "unit": "miles"      }, "name": "Odometer, imperial",  "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7D1", "rax": "7D9", "dbg": true, "cmd": {"21": "01"}, "freq": 0.25,
   "signals": [
@@ -468,6 +469,7 @@
     {"id": "KIA_IAT_SENSOR_VOLTAGE",                       "path": "Battery",  "fmt": {"bix": 248, "len": 16, "blsb": true,  "max": 319,                   "mul": 0.0048828125,                               "unit": "volts"      },                                                          "name": "IAT sensor voltage"},
     {"id": "KIA_IAT_SENSOR_VOLTAGE_FD",                    "path": "Battery",  "fmt": {"bix": 248, "len": 16, "blsb": true,  "max": 319.9951,              "mul": 0.0048828125,                               "unit": "volts"      },                                                          "name": "Intake air temperature sensor voltage"},
     {"id": "KIA_INTAKE_AIR_T",                             "path": "Engine",   "fmt": {"bix": 264, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Intake air temperature",                           "suggestedMetric": "intakeAirTemperature"},
+    {"id": "KIA_INTAKE_AIR_T_FD",                          "path": "Engine",   "fmt": {"bix": 264, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Intake air temperature"},
     {"id": "KIA_ENGINE_OIL_T",                             "path": "Engine",   "fmt": {"bix": 272, "len": 8,  "max": 143.25, "min": -48,      "mul": 0.75,                      "add": -48, "unit": "celsius" },                   "name": "Engine oil temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "02"}, "freq": 1,
@@ -1453,7 +1455,7 @@
     {"id": "KIA_HVBAT_FAN",                    "path": "Battery",  "fmt": {"bix": 224, "len": 8,  "max": 255,                                                                                 "unit": "hertz"         }, "name": "HV battery fan"},
     {"id": "KIA_BATTERY_FAN_FEEDBACK",         "path": "Battery",  "fmt": {"bix": 224, "len": 8,  "max": 120,                                                                                 "unit": "hertz"         }, "name": "Battery fan feedback"},
     {"id": "KIA_VPWR_V2",                      "path": "Battery",  "fmt": {"bix": 232, "len": 8,  "max": 25.5,                        "div": 10,                                              "unit": "volts"         }, "name": "Battery auxiliary voltage",            "suggestedMetric": "starterBatteryVoltage"},
-    {"id": "KIA_VPWR",                         "path": "Battery",  "fmt": {"bix": 232, "len": 8,  "max": 14.6,        "min": 11,      "div": 10,                                              "unit": "volts"         }, "name": "Auxiliary battery voltage"},
+    {"id": "KIA_VPWR_V2",                      "path": "Battery",  "fmt": {"bix": 232, "len": 8,  "max": 14.6,        "min": 11,      "div": 10,                                              "unit": "volts"         }, "name": "Auxiliary battery voltage"},
     {"id": "KIA_HVBAT_CHRG_TOT_C",             "path": "Battery",  "fmt": {"bix": 240, "len": 32, "max": 429496729,                   "div": 10,                                              "unit": "ampereHours"   }, "name": "Total charge current"},
     {"id": "KIA_CUMULATIVE_CHARGE_CURRENT",    "path": "Battery",  "fmt": {"bix": 240, "len": 32, "max": 429496729.5,                 "div": 10,                                              "unit": "ampereHours"   }, "name": "Cumulative charge current"},
     {"id": "KIA_HVBAT_DSCH_TOT_C",             "path": "Battery",  "fmt": {"bix": 272, "len": 32, "max": 429496729,                   "div": 10,                                              "unit": "ampereHours"   }, "name": "Total discharge current"},
@@ -1682,11 +1684,11 @@
     {"id": "KIA_HVBAT_HTR1_T",       "path": "Battery",             "fmt": {"bix": 184, "len": 8,  "max": 127,    "min": -127,                          "sign": true,                    "unit": "celsius"       }, "name": "HV battery heater 1 temperature"},
     {"id": "KIA_HVBAT_HTR2_T",       "path": "Battery",             "fmt": {"bix": 192, "len": 8,  "max": 127,    "min": -127,                          "sign": true,                    "unit": "celsius"       }, "name": "HV battery heater 2 temperature"},
     {"id": "KIA_HVBAT_SOH",          "path": "Battery",             "fmt": {"bix": 200, "len": 16, "max": 100,                             "div": 10,                                    "unit": "percent"       }, "name": "HV battery state of health",           "suggestedMetric": "stateOfHealth"},
-    {"id": "KIA_HVBAT_DET_MAX_ID",   "path": "Battery",             "fmt": {"bix": 216, "len": 8,  "max": 98,                                                         "nullmax": 200,    "unit": "scalar"        }, "name": "HV battery max deterioration cell id"},
+    {"id": "KIA_HVBAT_DET_MAX_ID",   "path": "Battery",             "fmt": {"bix": 216, "len": 8,  "max": 200,                                                        "nullmax": 200,    "unit": "scalar"        }, "name": "HV battery max deterioration cell id"},
     {"id": "KIA_HVBAT_WH",           "path": "Battery",             "fmt": {"bix": 224, "len": 16, "max": 100,                 "mul": 2,   "div": 1000,                                  "unit": "kilowattHours" }, "name": "HV battery remaining energy"},
     {"id": "KIA_HVBAT_DET_MIN_2",    "path": "Battery",             "fmt": {"bix": 224, "len": 16, "max": 131.07,              "mul": 2,   "div": 1000,               "nullmax": 131.07, "unit": "kilowattHours" }, "name": "HV battery remaining energy"},
     {"id": "KIA_HVBAT_DET_MIN",      "path": "Battery",             "fmt": {"bix": 224, "len": 16, "max": 100,                             "div": 10,                                    "unit": "percent"       }, "name": "HV battery min deteriation"},
-    {"id": "KIA_HVBAT_DET_MIN_ID",   "path": "Battery",             "fmt": {"bix": 240, "len": 8,  "max": 98,                                                         "nullmax": 200,    "unit": "scalar"        }, "name": "HV battery min deterioration cell id"},
+    {"id": "KIA_HVBAT_DET_MIN_ID",   "path": "Battery",             "fmt": {"bix": 240, "len": 8,  "max": 200,                                                        "nullmax": 200,    "unit": "scalar"        }, "name": "HV battery min deterioration cell id"},
     {"id": "KIA_HVBAT_SOC_DISP",     "path": "Battery",             "fmt": {"bix": 248, "len": 8,  "max": 100,                             "div": 2,                                     "unit": "percent"       }, "name": "HV battery charge",                    "suggestedMetric": "stateOfCharge"},
     {"id": "KIA_HVBAT_SOC_DISP_7E4", "path": "Battery",             "fmt": {"bix": 248, "len": 8,  "max": 100,                 "mul": 0.5,                                               "unit": "percent"       }, "name": "HV battery charge",                    "suggestedMetric": "stateOfCharge"},
     {"id": "KIA_HVBAT_CMU097_VOLT",  "path": "Battery.Modules.097", "fmt": {"bix": 272, "len": 8,  "max": 4.2,    "min": 2.8,              "div": 50,                                    "unit": "volts"         }, "name": "HV battery module 097 voltage"},
